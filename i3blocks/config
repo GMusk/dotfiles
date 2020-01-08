@@ -36,6 +36,9 @@ markup=none
 full_text="oi oi"
 command=echo "test"
 
+[battery]
+interval=60
+
 [time]
 label=
 command=date "+%d/%m/%y %I:%M%p "

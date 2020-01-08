@@ -1,0 +1,13 @@
+#!/bin/bash
+# echo             
+
+percent=$(acpi |grep -E -o '[0-9][0-9]?%')
+
+if [ ${percent%?} -le 20 ]; then
+  echo  
+elif [ ${percent%?} -g 20 ]; then
+  echo          
+fi
+
+exit 0
+
