@@ -36,6 +36,9 @@ markup=none
 full_text="oi oi"
 command=echo "test"
 
+[audio]
+interval=once
+
 [battery]
 interval=60
 

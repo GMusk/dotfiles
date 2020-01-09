@@ -1,12 +1,17 @@
 #!/bin/bash
-# echo             
 
-percent=$(acpi |grep -E -o '[0-9][0-9]?%')
+percent=$(acpi |grep -E -o '[0-9][0-9]?[0-9]?%')
 
-if [ ${percent%?} -le 20 ]; then
+if (( ${percent%?} <= 20 )); then
   echo  
-elif [ ${percent%?} -g 20 ]; then
-  echo          
+elif (( ${percent%?} > 20 && ${percent%?} <= 40 )); then
+  echo 
+elif (( ${percent%?} > 40 && ${percent%?} <= 60 )); then
+  echo 
+elif (( ${percent%?} > 60 && ${percent%?} <= 80 )); then
+  echo 
+elif (( ${percent%?} > 80 && ${percent%?} <= 100 )); then
+  echo 
 fi
 
 exit 0
