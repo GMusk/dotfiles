@@ -130,4 +130,13 @@ if ! shopt -oq posix; then
     . /etc/bash_completion
   fi
 fi
+
 alias dots='/usr/bin/git --git-dir=/home/george/.dots --work-tree=/home/george'
+
+alias tester='vim ~/Documents/scripts/pictures/resizer.py'
+
+# start dynamic colors
+dynamic-colors init
+
+# may remove
+PATH="$HOME/.local/bin:$PATH"

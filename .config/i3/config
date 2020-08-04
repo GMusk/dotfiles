@@ -27,7 +27,6 @@ font pango: Fira Code, Font Awesome 5 Free 10
 # X core fonts rendering does not support right-to-left and this being a bitmap
 # font, it doesn’t scale on retina/hidpi displays.
 
-# test for fullscreen
 bindsym $mod+$mod2+f focus parent; fullscreen; focus child
 
 # Remove title bar for windows
@@ -57,7 +56,7 @@ bindsym XF86AudioPrev exec playerctl previous
 bindsym XF86AudioPlay exec playerctl play-pause
 bindsym XF86AudioNext exec playerctl next
 
-# Print Screen F11
+# Print Screen
 bindsym Print exec flameshot gui
 
 # Use Mouse+$mod to drag floating windows to their wanted position

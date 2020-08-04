@@ -5,7 +5,11 @@
 ! - font-size: for scaling fonts
 !   https://github.com/majutsushi/urxvt-font-size/blob/master/font-size
 !
-! URxvt.perl-ext-common: default,matcher,selection-to-clipboard,font-size
+URxvt.perl-ext-common: default,matcher,selection-to-clipboard,font-size,urxvt-colors
+
+! Dynamic colors
+! =====
+URxvt.dynamicColors: on
 
 
 ! Fonts
@@ -39,11 +43,15 @@ URxvt.cutchars: "\"(),<>[]{}|'`"
 
 ! For clickable urls (RMB), not an exact match to gnome-shell.
 URxvt.url-launcher: xdg-open
-URxvt.matcher.button: 3
+URxvt.matcher.button: 1
 
 
 ! Key Bindings
 ! ============
+
+!dynamic colors on F12
+URxvt.perl-lib: /home/george/.dynamic-colors/
+URxvt.keysym.F12: perl:urxvt-colors:
 
 ! Copy/Paste, same keys as gnome-terminal
 ! https://stackoverflow.com/questions/39884093
