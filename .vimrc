@@ -105,10 +105,6 @@ set ruler
 " Always display the status line, even if only one window is displayed
 set laststatus=2
  
-" Instead of failing a command because of unsaved changes, instead raise a
-" dialogue asking if you wish to save changed files.
-set confirm
- 
 " Use visual bell instead of beeping when doing something wrong
 set visualbell
  
@@ -208,7 +204,7 @@ command! W execute 'w !sudo tee % > /dev/null' <bar> edit!
 " Install and run vim-plug on first run
 if empty(glob('~/.vim/autoload/plug.vim'))
     silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
-    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+        \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
     autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 
