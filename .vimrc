@@ -81,7 +81,8 @@ set nomodeline
 
 " Fold using indenation
 set foldmethod=indent
- 
+set nofoldenable
+
 " Use case insensitive search, except when using capital letters
 set ignorecase
 set smartcase
