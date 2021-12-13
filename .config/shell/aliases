@@ -1,0 +1,28 @@
+#!/bin/sh
+
+# config tidy
+alias dots='/usr/bin/git --git-dir=$HOME/.config/dotfiles/ --work-tree=$HOME'
+alias tmux='tmux -f $HOME/.config/tmux/tmux.conf' 
+
+# colour default
+alias ls='ls --color=auto' 
+alias grep='grep --color=auto' 
+alias fgrep='fgrep --color=auto' 
+alias egrep='egrep --color=auto'  
+
+# misc
+alias vim='nvim'
+alias ll='ls -alF' 
+alias la='ls -A' 
+alias l='ls -CF' 
+alias dcb='docker-compose build' 
+alias dcu='docker-compose up' 
+alias dcd='docker-compose down' 
+
+# git
+alias gib='git branch -a' 
+alias gich='git checkout'
+
+if [[ -e "./aliases_local" ]]; then
+    source "./aliases_local"
+fi
