@@ -6,10 +6,11 @@ if ! filereadable(system('echo -n "${XDG_DATA_HOME:-$HOME/.local/share}/nvim/aut
     autocmd VimEnter * PlugInstall
 endif
 
-call plug#begin(system('echo -n "${XDG_DATA_HOME:-$HOME/.local/share}/nvim/plugged"'))
+call plug#begin(stdpath('data') . '/plugged')
 
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
+Plug 'tpope/vim-sensible'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-fugitive'
 
@@ -17,17 +18,16 @@ Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 
 
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+
 Plug 'christoomey/vim-tmux-navigator'
 
-Plug 'itchyny/lightline.vim'
 
 " Syntax-highlighting for JSX
 Plug 'yuezk/vim-js'
 Plug 'maxmellon/vim-jsx-pretty'
 
-Plug 'brainfucksec/wal.vim'
-
-Plug 'digitaltoad/vim-pug'
-
 call plug#end()
 
+let g:airline_theme="onedark"

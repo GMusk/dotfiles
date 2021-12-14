@@ -1,15 +1,15 @@
 " Plugins
 source ~/.config/nvim/plugins.vim
 
-let mapleader = "" 
+let mapleader = ""
 
-" Colorscheme :O
-" colorscheme wal
+" whitespace showing (listchars)
+set list
 
-"security vuln
+"security vulnerability
 set nomodeline
 
-" Fold using indenation
+" Fold using indentation
 set foldmethod=indent
 set nofoldenable
 
@@ -25,7 +25,11 @@ set nostartofline
 set cmdheight=2
  
 " Display line numbers on the left
-set number relativenumber
+set number
+set relativenumber
+
+" ALlow toggle of relativenumber
+nmap <C-N> :set invrelativenumber<CR>
 
 " better ux
 set updatetime=300
@@ -44,9 +48,12 @@ set pastetoggle=<F2>
 set matchpairs+=<:>
 
 " Indentation options
-set shiftwidth=4
-set softtabstop=4
+" (https://gist.github.com/LunarLambda/4c444238fb364509b72cfb891979f1dd)
 set expandtab
+set tabstop=4      " Optional, if you want files with tabs to look the same too.
+set shiftwidth=4
+set softtabstop=-1 " Use value of shiftwidth
+set smarttab       " Always use shiftwidth
 
 " PYX setting
 set pyx=3
@@ -56,16 +63,58 @@ set pyx=3
 " Map the <Space> key to toggle a selected fold opened/closed.
 nnoremap <silent> <Space> @=(foldlevel('.')?'za':"\<Space>")<CR>
 vnoremap <Space> zf
- 
+
 " Map Y to act like D and C, i.e. to yank until EOL, rather than act as yy,
 map Y y$
 
-" 
+"
 set inccommand=nosplit
- 
+
 " Map <C-L> (redraw screen) to also turn off search highlighting until the
 " next search
 nnoremap <a-l> :nohl <CR>
+
+" search visual selection
+let s:save_cpo = &cpo | set cpo&vim
+if !exists('g:VeryLiteral')
+  let g:VeryLiteral = 0
+endif
+function! s:VSetSearch(cmd)
+  let old_reg = getreg('"')
+  let old_regtype = getregtype('"')
+  normal! gvy
+  if @@ =~? '^[0-9a-z,_]*$' || @@ =~? '^[0-9a-z ,_]*$' && g:VeryLiteral
+    let @/ = @@
+  else
+    let pat = escape(@@, a:cmd.'\')
+    if g:VeryLiteral
+      let pat = substitute(pat, '\n', '\\n', 'g')
+    else
+      let pat = substitute(pat, '^\_s\+', '\\s\\+', '')
+      let pat = substitute(pat, '\_s\+$', '\\s\\*', '')
+      let pat = substitute(pat, '\_s\+', '\\_s\\+', 'g')
+    endif
+    let @/ = '\V'.pat
+  endif
+  normal! gV
+  call setreg('"', old_reg, old_regtype)
+endfunction
+vnoremap <silent> * :<C-U>call <SID>VSetSearch('/')<CR>/<C-R>/<CR>
+vnoremap <silent> # :<C-U>call <SID>VSetSearch('?')<CR>?<C-R>/<CR>
+vmap <kMultiply> *
+nmap <silent> <Plug>VLToggle :let g:VeryLiteral = !g:VeryLiteral
+  \\| echo "VeryLiteral " . (g:VeryLiteral ? "On" : "Off")<CR>
+if !hasmapto("<Plug>VLToggle")
+  nmap <unique> <Leader>vl <Plug>VLToggle
+endif
+let &cpo = s:save_cpo | unlet s:save_cpo
+
+" fzf
+nnoremap <silent> <C-f> :Files<CR>
+
+command! -bang -nargs=* Ag call fzf#vim#ag(<q-args>, fzf#vim#with_preview({'options': '--delimiter : --nth 4..'}), <bang>0)
+
+" Coc
 
 " Use <c-space> to trigger completion.
 if has('nvim')
@@ -84,9 +133,4 @@ nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
-
-" fzf
-nnoremap <silent> <C-f> :Files<CR>
-
-command! -bang -nargs=* Ag call fzf#vim#ag(<q-args>, fzf#vim#with_preview({'options': '--delimiter : --nth 4..'}), <bang>0)
 

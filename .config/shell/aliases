@@ -21,7 +21,9 @@ alias dcd='docker-compose down'
 
 # git
 alias gib='git branch -a' 
+alias gic='git checkout develop && git pull'
 alias gich='git checkout'
+alias gilog='git log --branches --remotes --tags --graph --oneline --decorate'
 
 if [[ -e "./aliases_local" ]]; then
     source "./aliases_local"
