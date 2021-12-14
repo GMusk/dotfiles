@@ -26,5 +26,5 @@ alias gich='git checkout'
 alias gilog='git log --branches --remotes --tags --graph --oneline --decorate'
 
 if [[ -e "./aliases_local" ]]; then
-    source "./aliases_local"
+    source aliases_local
 fi
