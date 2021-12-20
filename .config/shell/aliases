@@ -25,6 +25,6 @@ alias gic='git checkout develop && git pull'
 alias gich='git checkout'
 alias gilog='git log --branches --remotes --tags --graph --oneline --decorate'
 
-if [[ -e "./aliases_local" ]]; then
-    source aliases_local
+if [[ -e "$HOME/.config/shell/aliases_local" ]]; then
+    source "$HOME/.config/shell/aliases_local"
 fi
