@@ -2,26 +2,27 @@
 
 # config tidy
 alias dots='git --git-dir=$HOME/.config/dotfiles/ --work-tree=$HOME'
-alias tmux='tmux -f $HOME/.config/tmux/tmux.conf' 
+alias tmux='tmux -f $HOME/.config/tmux/tmux.conf'
 
 # colour default
-alias ls='ls --color=auto' 
-alias grep='grep --color=auto' 
-alias fgrep='fgrep --color=auto' 
-alias egrep='egrep --color=auto'  
+alias ls='ls --color=auto'
+alias grep='grep --color=auto'
+alias fgrep='fgrep --color=auto'
+alias egrep='egrep --color=auto'
 
 # misc
 alias vim='nvim'
-alias ll='ls -alF' 
-alias la='ls -A' 
-alias l='ls -CF' 
-alias dcb='docker-compose build' 
-alias dcu='docker-compose up' 
-alias dcd='docker-compose down' 
+alias ll='ls -alF'
+alias la='ls -A'
+alias l='ls -CF'
+alias dcb='docker-compose build'
+alias dcu='docker-compose up'
+alias dcd='docker-compose down'
 
 # git
-alias gib='git branch -a' 
+alias gib='git branch -a'
 alias gic='git checkout develop && git pull'
+alias gib='git status'
 alias gich='git checkout'
 alias gilog='git log --branches --remotes --tags --graph --oneline --decorate'
 
