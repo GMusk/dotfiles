@@ -23,6 +23,7 @@ alias dcd='docker-compose down'
 alias gib='git branch -a'
 alias gic='(git switch develop 2> /dev/null || git switch master) && git pull'
 alias gis='git status'
+alias gip='git push -u origin HEAD'
 alias gich='git checkout'
 alias gilog='git log --branches --remotes --tags --graph --oneline --decorate'
 
