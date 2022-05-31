@@ -55,6 +55,8 @@ set shiftwidth=4
 set softtabstop=-1 " Use value of shiftwidth
 set smarttab       " Always use shiftwidth
 
+command -nargs=1 Indset set shiftwidth=<args>
+
 " PYX setting
 set pyx=3
 
