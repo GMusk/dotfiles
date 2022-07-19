@@ -5,7 +5,7 @@ alias dots='git --git-dir=$HOME/.config/dotfiles/ --work-tree=$HOME'
 alias tmux='tmux -f $HOME/.config/tmux/tmux.conf'
 
 # colour default
-alias ls='ls --color=auto'
+alias ls='ls -G --color=auto'
 alias grep='grep --color=auto'
 alias fgrep='fgrep --color=auto'
 alias egrep='egrep --color=auto'
@@ -21,7 +21,7 @@ alias dcd='docker-compose down'
 
 # git
 alias gib='git branch -a'
-alias gic='(git switch develop 2> /dev/null || git switch master) && git pull'
+alias gic='(git switch develop 2> /dev/null || git switch main || git switch master) && git pull'
 alias gis='git status'
 alias gip='git push -u origin HEAD'
 alias gich='git checkout'
