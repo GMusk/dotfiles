@@ -6,9 +6,9 @@ export XDG_STATE_HOME="$HOME/.local/state"
 
 # ZSH config
 export ZDOTDIR="$HOME/.config/zsh"
-export HISTFILE=~/.config/zsh/history
-export HISTSIZE=10000
-export SAVEHIST=10000
+export HISTFILE="$HOME/.config/zsh/history"
+export HISTSIZE=500
+export SAVEHIST=500
 
 # history files bin or hide in cache
 export LESSHISTFILE="/dev/null"
