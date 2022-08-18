@@ -53,7 +53,6 @@ set expandtab
 set tabstop=4      " Optional, if you want files with tabs to look the same too.
 set shiftwidth=4
 set softtabstop=-1 " Use value of shiftwidth
-set smarttab       " Always use shiftwidth
 
 command -nargs=1 Indset set shiftwidth=<args>
 
