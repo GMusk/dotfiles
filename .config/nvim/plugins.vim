@@ -23,6 +23,8 @@ Plug 'vim-airline/vim-airline-themes'
 
 Plug 'christoomey/vim-tmux-navigator'
 
+" HTML & CSS
+Plug 'mattn/emmet-vim'
 
 " Syntax-highlighting for JSX
 Plug 'yuezk/vim-js'
