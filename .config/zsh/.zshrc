@@ -1,11 +1,13 @@
-source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+if [[ "$(uname)" == "Darwin" ]]; then
+    source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+    source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+fi
 
 source "$XDG_CONFIG_HOME/shell/aliases"
 source "$XDG_CONFIG_HOME/shell/functions"
 
 source "$ZDOTDIR/plugins/vi-mode.zsh"
-source "$ZDOTDIR/plugins/ag.zsh"
+source "$ZDOTDIR/completions/_ag.zsh"
 
 export PATH="$HOME/.bin:$PATH"
 export PATH="$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
@@ -32,7 +34,7 @@ bindkey -M menuselect 'k' vi-up-line-or-history
 bindkey -M menuselect 'l' vi-forward-char
 bindkey -M menuselect 'j' vi-up-line-or-history
 
-# no cd, 
+# no cd
 setopt autocd extendedglob nomatch
 unsetopt beep
 
