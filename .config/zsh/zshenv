@@ -12,8 +12,8 @@ export SAVEHIST=500
 
 # history files bin or hide in cache
 export LESSHISTFILE="/dev/null"
-export PYTHON_HISTORY_FILE="$HOME/.cache"
-export MYSQL_HISTFILE="$HOME/.cache"
+export PYTHON_HISTORY_FILE="$HOME/.cache/python_history"
+export MYSQL_HISTFILE="$HOME/.cache/mysql_history"
 
 # Default programs:
 export EDITOR="nvim"

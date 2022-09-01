@@ -1,6 +1,7 @@
 if [[ "$(uname)" == "Darwin" ]]; then
     source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
     source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+    source /opt/homebrew/share/zsh-history-substring-search/zsh-history-substring-search.zsh
 fi
 
 source "$XDG_CONFIG_HOME/shell/aliases"
@@ -8,9 +9,6 @@ source "$XDG_CONFIG_HOME/shell/functions"
 
 source "$ZDOTDIR/plugins/vi-mode.zsh"
 source "$ZDOTDIR/completions/_ag.zsh"
-
-export PATH="$HOME/.bin:$PATH"
-export PATH="$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
 
 # Prompt
 autoload -Uz colors
@@ -33,6 +31,11 @@ bindkey -M menuselect 'h' vi-backward-char
 bindkey -M menuselect 'k' vi-up-line-or-history
 bindkey -M menuselect 'l' vi-forward-char
 bindkey -M menuselect 'j' vi-up-line-or-history
+
+# fish substring search
+
+bindkey '^[OA' history-substring-search-up
+bindkey '^[OB' history-substring-search-down
 
 # no cd
 setopt autocd extendedglob nomatch
