@@ -126,8 +126,9 @@ endif
 
 " Make <CR> auto-select the first completion item and notify coc.nvim to
 " format on enter, <cr> could be remapped by other vim plugin
-inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm()
+inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm()
                               \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+
 
 " GoTo code navigation.
 nmap <silent> gd <Plug>(coc-definition)
@@ -136,5 +137,19 @@ nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
 
 lua <<
-require("nvim-tree").setup()
+require("nvim-tree").setup({
+    renderer = {
+        icons = {
+            show = {
+                file = false,
+                folder = false,
+                folder_arrow = false,
+                git = false,
+            },
+            glyphs = {
+                symlink = "",
+            }
+        }
+    }
+})
 .

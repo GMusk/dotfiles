@@ -2,7 +2,7 @@
 
 giclr(){
     git fetch -p
-    for branch in $(git branch --merged | egrep -v "master"); do
+    for branch in $(git branch --merged | egrep -v "master|main"); do
         git branch -d $branch
     done
 }
