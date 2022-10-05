@@ -1,10 +1,14 @@
 " Check installed
 if ! filereadable(system('echo -n "${XDG_DATA_HOME:-$HOME/.local/share}/nvim/autoload/plug.vim"'))
-    echo "Downloading junegunn/vim-plug to manage plugins..."
+    echo 'Downloading junegunn/vim-plug to manage plugins...'
     silent !mkdir -p ${XDG_DATA_HOME:-$HOME/.local/share}/nvim/autoload/
-    silent !curl "https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim" > ${XDG_DATA_HOME:-$HOME/.local/share}/nvim/autoload/plug.vim
+    silent !curl 'https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim' > ${XDG_DATA_HOME:-$HOME/.local/share}/nvim/autoload/plug.vim
     autocmd VimEnter * PlugInstall
 endif
+
+let g:airline_theme='onehalfdark'
+
+let s:coc_extensions = ['coc-tsserver', 'coc-prettier', 'coc-html', 'coc-eslint']
 
 call plug#begin(stdpath('data') . '/plugged')
 
@@ -31,6 +35,11 @@ Plug 'mattn/emmet-vim'
 Plug 'yuezk/vim-js'
 Plug 'maxmellon/vim-jsx-pretty'
 
+" Terraform highlighting 
+Plug 'hashivim/vim-terraform'
+
+" colorschemes
+Plug 'sonph/onehalf', { 'rtp': 'vim' }
+
 call plug#end()
 
-let g:airline_theme="onedark"
