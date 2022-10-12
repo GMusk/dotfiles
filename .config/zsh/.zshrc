@@ -8,11 +8,6 @@ else
     source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 fi
 
-source "$XDG_CONFIG_HOME/shell/aliases"
-source "$XDG_CONFIG_HOME/shell/functions"
-
-source "$ZDOTDIR/plugins/vi-mode.zsh"
-source "$ZDOTDIR/completions/_ag.zsh"
 
 # Prompt
 autoload -Uz colors
@@ -26,8 +21,17 @@ zstyle ':completion:*' menu select=1
 zstyle ':completion:*' select-prompt %SScrolling active: current selection at %p%s
 zstyle :compinstall filename '/Users/georgemusker/.config/zsh/.zshrc'
 
+fpath=(~/.config/zsh/completions "${fpath[@]}")
+
 autoload -Uz compinit
 compinit
+
+# custom completions and plugins
+source "$ZDOTDIR/plugins/vi-mode.zsh"
+
+# custom functions
+source "$XDG_CONFIG_HOME/shell/aliases"
+source "$XDG_CONFIG_HOME/shell/functions"
 
 # vi completion navigation
 zmodload zsh/complist
@@ -37,7 +41,6 @@ bindkey -M menuselect 'l' vi-forward-char
 bindkey -M menuselect 'j' vi-up-line-or-history
 
 # fish substring search
-
 bindkey '^[OA' history-substring-search-up
 bindkey '^[OB' history-substring-search-down
 
