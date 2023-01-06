@@ -1,7 +1,8 @@
 " Plugins
 source ~/.config/nvim/plugins.vim
+source ~/.config/nvim/tree.lua
 
-let mapleader = ""
+let mapleader = ","
 
 " colors
 set t_Co=256
@@ -12,6 +13,9 @@ if exists('+termguicolors')
   let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
   set termguicolors
 endif
+
+" disable mouse (tmux copy enable)
+set mouse=
 
 " whitespace showing (listchars)
 set list
@@ -36,7 +40,6 @@ set cmdheight=2
  
 " Display line numbers on the left
 set number
-set relativenumber
 
 " ALlow toggle of relativenumber
 nmap <C-N> :set invrelativenumber<CR>
@@ -146,23 +149,9 @@ nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
 
-lua <<
-require("nvim-tree").setup({
-    renderer = {
-        icons = {
-            show = {
-                file = false,
-                folder = false,
-                folder_arrow = false,
-                git = false,
-            },
-            glyphs = {
-                symlink = "",
-            }
-        }
-    }
-})
-.
-
+" Prettier command
 command! -nargs=0 Prettier :call CocAction('runCommand', 'prettier.formatFile')
+
+" NvimTreeToggle
+nmap <Leader>t :NvimTreeToggle<CR>
 
