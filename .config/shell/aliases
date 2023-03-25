@@ -10,11 +10,17 @@ alias grep='grep --color=auto'
 alias fgrep='fgrep --color=auto'
 alias egrep='egrep --color=auto'
 
-# misc
+# shortenings
 alias vim='nvim'
+alias open='xdg-open'
+
+# arg aliases
 alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
+
+
+# containers
 alias dcb='docker-compose build'
 alias dcu='docker-compose up'
 alias dcd='docker-compose down'
