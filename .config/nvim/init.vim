@@ -2,7 +2,7 @@
 source ~/.config/nvim/plugins.vim
 source ~/.config/nvim/tree.lua
 
-let mapleader = ","
+let mapleader = " "
 
 " colors
 set t_Co=256
@@ -42,7 +42,7 @@ set cmdheight=2
 set number
 
 " ALlow toggle of relativenumber
-nmap <C-N> :set invrelativenumber<CR>
+nmap <Leader>n :set invrelativenumber<CR>
 
 " better ux
 set updatetime=300
@@ -75,7 +75,7 @@ set pyx=3
 " Useful mappings
 
 " Map the <Space> key to toggle a selected fold opened/closed.
-nnoremap <silent> <Space> @=(foldlevel('.')?'za':"\<Space>")<CR>
+nnoremap <silent> <Enter> @=(foldlevel('.')?'za':"\<Space>")<CR>
 vnoremap <Space> zf
 
 " Map Y to act like D and C, i.e. to yank until EOL, rather than act as yy,
@@ -86,7 +86,7 @@ set inccommand=nosplit
 
 " Map <C-L> (redraw screen) to also turn off search highlighting until the
 " next search
-nnoremap <a-l> :nohl <CR>
+nnoremap <Leader>l :nohl<CR>
 
 " search visual selection
 let s:save_cpo = &cpo | set cpo&vim
@@ -155,3 +155,5 @@ command! -nargs=0 Prettier :call CocAction('runCommand', 'prettier.formatFile')
 " NvimTreeToggle
 nmap <Leader>t :NvimTreeToggle<CR>
 
+" VsCode
+nmap <Leader>c :! code .<CR>

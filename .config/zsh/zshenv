@@ -25,6 +25,7 @@ export PATH="$PATH:$HOME/.local/bin"
 # fix fzf searches
 export FZF_DEFAULT_COMMAND="ag -l --path-to-ignore ~/.config/git/gitignore --nocolor -g ''"
 
+# npm config home
 export NPM_CONFIG_USERCONFIG="$XDG_CONFIG_HOME/npm/npmrc"
 
 [ -f "$XDG_CONFIG_HOME/zsh/zshenv.local" ] && source "$XDG_CONFIG_HOME/zsh/zshenv.local"

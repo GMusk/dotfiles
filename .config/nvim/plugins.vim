@@ -33,6 +33,9 @@ Plug 'christoomey/vim-tmux-navigator'
 Plug 'yuezk/vim-js'
 Plug 'maxmellon/vim-jsx-pretty'
 
+" Syntax highlighting for Prisma
+Plug 'prisma/vim-prisma'
+
 " Terraform highlighting 
 Plug 'hashivim/vim-terraform'
 

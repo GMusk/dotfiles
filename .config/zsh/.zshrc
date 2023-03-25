@@ -28,6 +28,7 @@ compinit
 
 # custom completions and plugins
 source "$ZDOTDIR/plugins/vi-mode.zsh"
+source "$ZDOTDIR/plugins/nvm.plugin.zsh"
 
 # custom functions
 source "$XDG_CONFIG_HOME/shell/aliases"
