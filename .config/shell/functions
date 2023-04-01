@@ -1,5 +1,14 @@
 #!/bin/bash
 
+dots () {
+  git --git-dir=$HOME/.config/dotfiles/ --work-tree=$HOME "$@"
+}
+
+_dots () {
+  local -x GIT_DIR=$HOME/.config/dotfiles/ GIT_WORKTREE=$HOME "$@"
+  _git "$@"
+}
+
 giclr(){
     git fetch -p
     for branch in $(git branch -vv | grep "gone" | awk '{print $1}'); do

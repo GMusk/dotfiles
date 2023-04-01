@@ -1,7 +1,6 @@
 #!/bin/sh
 
 # config tidy
-alias dots='git --git-dir=$HOME/.config/dotfiles/ --work-tree=$HOME'
 alias tmux='tmux -f $HOME/.config/tmux/tmux.conf'
 
 # colour default
