@@ -1,8 +1,5 @@
 #!/bin/sh
 
-# config tidy
-alias tmux='tmux -f $HOME/.config/tmux/tmux.conf'
-
 # colour default
 alias ls='ls -G --color=auto'
 alias grep='grep --color=auto'
