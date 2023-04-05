@@ -3,7 +3,7 @@ require 'plugins'
 local g = vim.g
 local cmd = vim.cmd
 
-g.mapleader = [[,]]
+g.mapleader = [[ ]]
 
 g.loaded_netrw = 1
 g.loaded_netrwPlugin = 1
