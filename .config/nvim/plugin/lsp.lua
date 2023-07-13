@@ -12,7 +12,7 @@ null_ls.setup({
     null_ls.builtins.formatting.prettier,
   },
   on_attach = function(client, bufnr)
-    if client.supports_method("textDocument/formatting") then
+    if client.supports_method("textDocument/formatting") and false then
       -- format on save
       vim.api.nvim_clear_autocmds({ buffer = bufnr, group = group })
       vim.api.nvim_create_autocmd(event, {
@@ -31,9 +31,9 @@ null_ls.setup({
 -- Global mappings.
 -- See `:help vim.diagnostic.*` for documentation on any of the below functions
 vim.keymap.set('n', ',e', vim.diagnostic.open_float)
-vim.keymap.set('n', '[d', vim.diagnostic.goto_prev)
-vim.keymap.set('n', ']d', vim.diagnostic.goto_next)
-vim.keymap.set('n', ',q', vim.diagnostic.setloclist)
+vim.keymap.set('n', 'pe', vim.diagnostic.goto_prev)
+vim.keymap.set('n', 'ne', vim.diagnostic.goto_next)
+vim.keymap.set('n', 'ge', vim.diagnostic.setloclist)
 
 -- Use LspAttach autocommand to only map the following keys
 -- after the language server attaches to the current buffer
@@ -50,7 +50,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
     vim.keymap.set('n', 'gd', vim.lsp.buf.definition, opts)
     vim.keymap.set('n', 'K', vim.lsp.buf.hover, opts)
     vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, opts)
-    vim.keymap.set('n', '<C-k>', vim.lsp.buf.signature_help, opts)
+    vim.keymap.set('n', 'sH', vim.lsp.buf.signature_help, opts)
     vim.keymap.set('n', ',wa', vim.lsp.buf.add_workspace_folder, opts)
     vim.keymap.set('n', ',wr', vim.lsp.buf.remove_workspace_folder, opts)
     vim.keymap.set('n', ',wl', function()

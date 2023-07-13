@@ -8,6 +8,10 @@ g.mapleader = [[ ]]
 g.loaded_netrw = 1
 g.loaded_netrwPlugin = 1
 
+g.node_host_prog = '/usr/local/bin/neovim-node-host'
+
+cmd("let $PATH = '" ..vim.fn.expand("$HOME/.nvm/versions/node/v16.20.0/bin") .. ":' . $PATH")
+
 local opt = vim.opt
 
 -- disable mouse
@@ -36,16 +40,21 @@ opt.signcolumn = 'number'
 opt.updatetime = 300
 -- eh
 opt.inccommand = 'nosplit'
+-- dont create swap files
+opt.swapfile = false
+
 
 require('onedark').load()
 
-local keymap = vim.keymap
-local builtin = require('telescope.builtin')
-keymap.set('n', '<leader>ff', builtin.find_files, {})
-keymap.set('n', '<leader>fg', builtin.live_grep, {})
-keymap.set('n', '<leader>fb', builtin.buffers, {})
-keymap.set('n', '<leader>fh', builtin.help_tags, {})
+require('os')
 
-require('nvim-tree').setup()
-local api = require('nvim-tree.api')
-keymap.set('n', '<leader>t', api.tree.toggle, {})
+-- function to output time now
+function timeNow()
+  local time = os.time()
+  vim.api.nvim_set_current_line('[' .. os.date("%x", time) ..']')
+end
+vim.keymap.set('n', '<leader>tn', '<cmd>lua timeNow()<cr>')
+
+
+-- function to cycle line number, rel number, neither 
+

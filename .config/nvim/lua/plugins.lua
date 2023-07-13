@@ -14,6 +14,12 @@ return require('packer').startup(function(use)
 
   use 'neovim/nvim-lspconfig'
 
+  use {
+    'williamboman/mason.nvim',
+    run = ":MasonUpdate", -- :MasonUpdate updates registry contents
+    config = [[require('config.mason')]]
+  }
+
   -- lsp plug in
   use 'jose-elias-alvarez/null-ls.nvim'
   use 'MunifTanjim/prettier.nvim'
@@ -23,17 +29,25 @@ return require('packer').startup(function(use)
     'hrsh7th/nvim-cmp',
     requires = {
       'hrsh7th/cmp-nvim-lsp',
-      { 'hrsh7th/cmp-buffer', after = 'nvim-cmp' },
-      { 'hrsh7th/cmp-nvim-lsp-signature-help', after = 'nvim-cmp' },
-      { 'hrsh7th/cmp-path', after = 'nvim-cmp' },
-      { 'hrsh7th/cmp-nvim-lua', after = 'nvim-cmp' },
+      'hrsh7th/cmp-buffer',
+      'hrsh7th/cmp-path',
+      'hrsh7th/cmp-cmdline',
+      'hrsh7th/cmp-nvim-lua',
+      'hrsh7th/cmp-nvim-lsp-signature-help'
     },
     config = [[require('config.cmp')]]
   }
 
   use {
-    'nvim-telescope/telescope.nvim', tag = '0.1.1',
-    requires = { {'nvim-lua/plenary.nvim'} }
+    'nvim-telescope/telescope.nvim',
+    tag = '0.1.1',
+    requires = { {'nvim-lua/plenary.nvim'} },
+    config = [[require('config.telescope')]]
+  }
+
+  use {
+    'nvim-telescope/telescope-fzf-native.nvim',
+    run = 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build'
   }
 
   use {
@@ -41,6 +55,7 @@ return require('packer').startup(function(use)
     requires = {
       'nvim-tree/nvim-web-devicons', -- optional
     },
+    config = [[require('config.tree')]]
   }
 
   use 'lervag/vimtex'
