@@ -23,6 +23,7 @@ return require('packer').startup(function(use)
   -- lsp plug in
   use 'jose-elias-alvarez/null-ls.nvim'
   use 'MunifTanjim/prettier.nvim'
+  use 'MunifTanjim/eslint.nvim'
 
   -- completion
   use {

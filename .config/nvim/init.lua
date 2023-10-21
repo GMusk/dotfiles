@@ -8,7 +8,16 @@ g.mapleader = [[ ]]
 g.loaded_netrw = 1
 g.loaded_netrwPlugin = 1
 
-g.node_host_prog = '/usr/local/bin/neovim-node-host'
+g.clipboard = {
+  name = tmuxClipboard,
+  copy = {
+    ['+'] = {'tmux', 'load-buffer', '-'},
+  },
+  paste = {
+    ['+'] = {'tmux', 'save-buffer', '-'},
+  },
+  cache_enabled = 1,
+}
 
 cmd("let $PATH = '" ..vim.fn.expand("$HOME/.nvm/versions/node/v16.20.0/bin") .. ":' . $PATH")
 
@@ -43,6 +52,10 @@ opt.inccommand = 'nosplit'
 -- dont create swap files
 opt.swapfile = false
 
+opt.foldmethod = 'expr'
+opt.foldexpr = 'indent'
+--Disable folding at startup
+opt.foldenable = false
 
 require('onedark').load()
 
@@ -54,7 +67,6 @@ function timeNow()
   vim.api.nvim_set_current_line('[' .. os.date("%x", time) ..']')
 end
 vim.keymap.set('n', '<leader>tn', '<cmd>lua timeNow()<cr>')
-
 
 -- function to cycle line number, rel number, neither 
 

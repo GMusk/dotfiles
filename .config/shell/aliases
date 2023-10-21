@@ -18,19 +18,22 @@ alias l='ls -CF'
 
 
 # containers
+alias dc='docker-compose'
 alias dcb='docker-compose build'
-alias dcu='docker-compose up'
+alias dcu='docker-compose up -d'
 alias dcd='docker-compose down'
+alias dcr='dcd && dcu'
 
 # git
 alias gib='git branch -a'
 alias gic='(git switch main 2> /dev/null || git switch develop 2> /dev/null || git switch master) && git pull'
-alias gis='git status'
-alias gip='git push -u origin HEAD'
 alias gich='git checkout'
 alias gico='git commit -am'
 alias gilog='git log --branches --remotes --tags --graph --decorate --pretty=format:"%C(yellow)%h %Cgreen%ad %Cblue%an%Cred%d %Creset%s" --date=short'
 alias giop='$EDITOR $(git status -s | awk "{print \$2}")'
+alias gip='git push -u origin HEAD'
+alias gir='git reset HEAD'
+alias gis='git status'
 
 if [[ -e "$HOME/.config/shell/aliases_local" ]]; then
     source "$HOME/.config/shell/aliases_local"

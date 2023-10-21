@@ -22,6 +22,7 @@ compinit
 # custom completions and plugins
 source "$ZDOTDIR/plugins/vi-mode.zsh"
 source "$ZDOTDIR/plugins/nvm.plugin.zsh"
+source "$ZDOTDIR/plugins/nx.plugin.zsh"
 
 # custom functions
 source "$XDG_CONFIG_HOME/shell/aliases"
@@ -46,3 +47,5 @@ stty stop undef # disable ^s terminal freeze
 
 # This loads nvm
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+
+source /usr/share/autojump/autojump.zsh

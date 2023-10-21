@@ -104,6 +104,11 @@ _G.packer_plugins = {
     path = "/home/georgemusker/.local/share/nvim/site/pack/packer/start/cmp-path",
     url = "https://github.com/hrsh7th/cmp-path"
   },
+  ["eslint.nvim"] = {
+    loaded = true,
+    path = "/home/georgemusker/.local/share/nvim/site/pack/packer/start/eslint.nvim",
+    url = "https://github.com/MunifTanjim/eslint.nvim"
+  },
   ["mason.nvim"] = {
     config = { "require('config.mason')" },
     loaded = true,
@@ -206,14 +211,14 @@ _G.packer_plugins = {
 }
 
 time([[Defining packer_plugins]], false)
--- Config for: nvim-tree.lua
-time([[Config for nvim-tree.lua]], true)
-require('config.tree')
-time([[Config for nvim-tree.lua]], false)
 -- Config for: mason.nvim
 time([[Config for mason.nvim]], true)
 require('config.mason')
 time([[Config for mason.nvim]], false)
+-- Config for: nvim-tree.lua
+time([[Config for nvim-tree.lua]], true)
+require('config.tree')
+time([[Config for nvim-tree.lua]], false)
 -- Config for: nvim-cmp
 time([[Config for nvim-cmp]], true)
 require('config.cmp')
