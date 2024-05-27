@@ -19,8 +19,6 @@ g.clipboard = {
   cache_enabled = 1,
 }
 
-cmd("let $PATH = '" ..vim.fn.expand("$HOME/.nvm/versions/node/v16.20.0/bin") .. ":' . $PATH")
-
 local opt = vim.opt
 
 -- disable mouse

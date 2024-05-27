@@ -14,12 +14,6 @@ return require('packer').startup(function(use)
 
   use 'neovim/nvim-lspconfig'
 
-  use {
-    'williamboman/mason.nvim',
-    run = ":MasonUpdate", -- :MasonUpdate updates registry contents
-    config = [[require('config.mason')]]
-  }
-
   -- lsp plug in
   use 'jose-elias-alvarez/null-ls.nvim'
   use 'MunifTanjim/prettier.nvim'
