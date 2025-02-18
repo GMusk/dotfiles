@@ -50,8 +50,7 @@ opt.inccommand = 'nosplit'
 -- dont create swap files
 opt.swapfile = false
 
-opt.foldmethod = 'expr'
-opt.foldexpr = 'indent'
+opt.foldmethod = 'indent'
 --Disable folding at startup
 opt.foldenable = false
 
@@ -66,5 +65,33 @@ function timeNow()
 end
 vim.keymap.set('n', '<leader>tn', '<cmd>lua timeNow()<cr>')
 
--- function to cycle line number, rel number, neither 
+-- Define a global variable to keep track of the state
+if not vim.g.toggle_number_state then
+  vim.g.toggle_number_state = 1
+end
 
+-- Function to toggle the number state
+function ToggleNumber(direction)
+  if direction == "forward" then
+    vim.g.toggle_number_state = (vim.g.toggle_number_state + 1) % 3
+  elseif direction == "backward" then
+    vim.g.toggle_number_state = (vim.g.toggle_number_state + 2) % 3
+  end
+
+  if vim.g.toggle_number_state == 0 then
+    vim.wo.number = false
+    vim.wo.relativenumber = false
+  elseif vim.g.toggle_number_state == 1 then
+    vim.wo.number = true
+    vim.wo.relativenumber = false
+  else
+    vim.wo.number = true
+    vim.wo.relativenumber = true
+  end
+end
+
+-- Map <leader>n to call the ToggleNumber function in forward direction
+vim.api.nvim_set_keymap('n', '<leader>n', ':lua ToggleNumber("forward")<CR>', { noremap = true, silent = true })
+
+-- Map <leader>N to call the ToggleNumber function in backward direction
+vim.api.nvim_set_keymap('n', '<leader>N', ':lua ToggleNumber("backward")<CR>', { noremap = true, silent = true })

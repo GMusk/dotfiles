@@ -151,6 +151,11 @@ _G.packer_plugins = {
     path = "/home/georgemusker/.local/share/nvim/site/pack/packer/start/packer.nvim",
     url = "https://github.com/wbthomason/packer.nvim"
   },
+  ["pgsql.vim"] = {
+    loaded = true,
+    path = "/home/georgemusker/.local/share/nvim/site/pack/packer/start/pgsql.vim",
+    url = "https://github.com/lifepillar/pgsql.vim"
+  },
   playground = {
     loaded = true,
     path = "/home/georgemusker/.local/share/nvim/site/pack/packer/start/playground",
@@ -209,14 +214,14 @@ time([[Defining packer_plugins]], false)
 time([[Config for nvim-cmp]], true)
 require('config.cmp')
 time([[Config for nvim-cmp]], false)
--- Config for: telescope.nvim
-time([[Config for telescope.nvim]], true)
-require('config.telescope')
-time([[Config for telescope.nvim]], false)
 -- Config for: nvim-tree.lua
 time([[Config for nvim-tree.lua]], true)
 require('config.tree')
 time([[Config for nvim-tree.lua]], false)
+-- Config for: telescope.nvim
+time([[Config for telescope.nvim]], true)
+require('config.telescope')
+time([[Config for telescope.nvim]], false)
 
 _G._packer.inside_compile = false
 if _G._packer.needs_bufread == true then
