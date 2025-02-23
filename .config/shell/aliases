@@ -16,7 +16,6 @@ alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
 
-
 # containers
 alias dc='docker-compose'
 alias dcb='docker-compose build'

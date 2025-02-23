@@ -1,23 +1,9 @@
 require 'plugins'
 
-local g = vim.g
-local cmd = vim.cmd
+vim.g.mapleader = [[ ]]
 
-g.mapleader = [[ ]]
-
-g.loaded_netrw = 1
-g.loaded_netrwPlugin = 1
-
-g.clipboard = {
-  name = tmuxClipboard,
-  copy = {
-    ['+'] = {'tmux', 'load-buffer', '-'},
-  },
-  paste = {
-    ['+'] = {'tmux', 'save-buffer', '-'},
-  },
-  cache_enabled = 1,
-}
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
 
 local opt = vim.opt
 
@@ -70,23 +56,12 @@ if not vim.g.toggle_number_state then
   vim.g.toggle_number_state = 1
 end
 
--- Function to toggle the number state
+-- function to cycle line number, rel number, neither
 function ToggleNumber(direction)
   if direction == "forward" then
     vim.g.toggle_number_state = (vim.g.toggle_number_state + 1) % 3
   elseif direction == "backward" then
     vim.g.toggle_number_state = (vim.g.toggle_number_state + 2) % 3
-  end
-
-  if vim.g.toggle_number_state == 0 then
-    vim.wo.number = false
-    vim.wo.relativenumber = false
-  elseif vim.g.toggle_number_state == 1 then
-    vim.wo.number = true
-    vim.wo.relativenumber = false
-  else
-    vim.wo.number = true
-    vim.wo.relativenumber = true
   end
 end
 

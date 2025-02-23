@@ -1,7 +1,3 @@
-source /usr/share/zsh-history-substring-search/zsh-history-substring-search.zsh
-source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-source /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-
 # Prompt
 autoload -Uz colors
 colors
@@ -22,7 +18,7 @@ compinit
 # custom completions and plugins
 source "$ZDOTDIR/plugins/vi-mode.zsh"
 source "$ZDOTDIR/plugins/nvm.plugin.zsh"
-source "$ZDOTDIR/plugins/nx.plugin.zsh"
+[[ -f "$ZDOTDIR/plugins/nx.plugin.zsh" ]] && source "$ZDOTDIR/plugins/nx.plugin.zsh"
 
 # custom functions
 source "$XDG_CONFIG_HOME/shell/aliases"
@@ -48,4 +44,8 @@ stty stop undef # disable ^s terminal freeze
 # This loads nvm
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
 
-source /usr/share/autojump/autojump.zsh
+[[ -f /usr/share/autojump/autojump.zsh ]] && source /usr/share/autojump/autojump.zsh
+source "$ZDOTDIR/zsh-history-substring-search/zsh-history-substring-search.zsh"
+source "$ZDOTDIR/zsh-history-substring-search/zsh-history-substring-search.zsh"
+source "$ZDOTDIR/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
+

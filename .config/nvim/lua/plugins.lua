@@ -33,9 +33,9 @@ return require('packer').startup(function(use)
     config = [[require('config.cmp')]]
   }
 
+  -- file search
   use {
     'nvim-telescope/telescope.nvim',
-    tag = '0.1.1',
     requires = { {'nvim-lua/plenary.nvim'} },
     config = [[require('config.telescope')]]
   }
@@ -53,9 +53,12 @@ return require('packer').startup(function(use)
     config = [[require('config.tree')]]
   }
 
+  -- latex plugin
   use 'lervag/vimtex'
 
+  -- move between tmux and vim splits
   use 'christoomey/vim-tmux-navigator'
 
+  -- theme
   use 'navarasu/onedark.nvim'
 end)

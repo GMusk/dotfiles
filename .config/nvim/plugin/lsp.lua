@@ -3,7 +3,7 @@ local null_ls = require 'null-ls'
 local prettier = require 'prettier'
 local eslint = require 'eslint'
 
-lspconfig.tsserver.setup {}
+lspconfig.ts_ls.setup {}
 lspconfig.eslint.setup {}
 
 local group = vim.api.nvim_create_augroup("lsp_format_on_save", { clear = false })
